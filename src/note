@@ -1,0 +1,63 @@
+
+
+
+
+
+                  angular- front end development
+
+                         basic commands
+
+    1.to create project->ng new project-name / ng new project-name --routing
+
+    2.to run a project->ng serve/ng serve --open
+
+    3.to create component-ng g c component-name
+
+    4. to generate service-ng g s service-name
+
+                         basic components
+
+    1.component-to create {html,css,ts file}root component-app component
+
+    2.module-to add third party libraries to the project---root module-App module
+
+    3.data binding-data sharing bw html and ts
+
+       3.1one way binding
+
+        3.1.1component to view (ts to html)
+
+           3.1.1.1string interpolation:syntax-{{variable-name}}
+
+           3.1.1.2property binding:[attribute]="variable-name"
+
+        3.1.2view to component
+
+            3.1.2.1event binding-(event)="function-call()"
+
+            3.1.2.2event binding using $event-(event)="function-call($event)"
+
+            3.1.2.3template referencing variable-#variable-name
+
+      3.2two way binding
+
+       3.2.1.using ng model-import formsmodule in appmodule,
+            syntax:[(ngModel)]="variable-name"
+
+   4.to setup path for a component: defined in app routing module
+     syntax:{path:'',component:componentClassName}
+
+   5.dependency injection-to share data bw classes
+
+   6.angular services-for to hold redundant data(reusable datas)
+
+   7.ngsubmit-to submit entire form
+     syntax:(ngsubmit)="function-call"
+
+   8. angular forms
+       8.1 template driven forms-first design html
+
+       8.2 model driven forms -first create model in ts
+         8.2.1 reactive forms-add validation:ReativeFormsModule
+               -form group-FormBuilder
+
