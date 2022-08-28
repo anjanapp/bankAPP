@@ -1,0 +1,7 @@
+<!-- <p>animation works!</p> -->
+
+
+<div [@openClose]="isOpen?'open':'close'">
+    <h4 style="color: white;">Iam {{isOpen?"open":"close"}}</h4>
+    <button (click)="toggle()" class="btn btn-warning">Toggle</button>
+</div>

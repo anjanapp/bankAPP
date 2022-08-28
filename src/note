@@ -15,6 +15,10 @@
 
     4. to generate service-ng g s service-name
 
+    5.to create directives-ng g d directive-name
+
+    6.to build angular application- ng build --prod
+
                          basic concepts
 
     1.component-to create {html,css,ts file}root component-app component
@@ -25,24 +29,24 @@
 
        3.1one way binding
 
-        3.1.1component to view (ts to html)
+        3.1.1component to view (to get data in ts to html)
 
            3.1.1.1string interpolation:syntax-{{variable-name}}
 
            3.1.1.2property binding:[attribute]="variable-name"
 
-        3.1.2view to component
+        3.1.2view to component(to get data in html to ts)
 
             3.1.2.1event binding-(event)="function-call()"
 
-            3.1.2.2event binding using $event-(event)="function-call($event)"
+            3.1.2.2event binding using $event-(event)="function-call($event)"  //to get user entered details also
 
             3.1.2.3template referencing variable-#variable-name
 
       3.2two way binding
 
-       3.2.1.using ng model-import formsmodule in appmodule,
-            syntax:[(ngModel)]="variable-name"
+       3.2.1.using ng model-import formsmodule in appmodule,    
+            syntax:[(ngModel)]="variable-name"      //data will be shared bw html and ts file at the same time
 
    4.to setup path for a component: defined in app routing module
      syntax:{path:'',component:componentClassName}
@@ -51,13 +55,54 @@
 
    6.angular services-for to hold redundant data(reusable datas)
 
-   7.ngsubmit-to submit entire form
+   7.ngsubmit-to submit entire form  ----type='submit' in html
      syntax:(ngsubmit)="function-call"
 
-   8. angular forms
+    8. angular forms
        8.1 template driven forms-first design html
 
        8.2 model driven forms -first create model in ts
          8.2.1 reactive forms-add validation:ReativeFormsModule
                -form group-FormBuilder dependency inject,form array,form control
+               
+  9.angular directives-to manipulate dom
+     9.1.component directives-used to specify the template or html for DOM layout
+
+     9.2.structural directives-to change dom structure
+       9.2.1.ngIf - syntax : *ngIf="condition"
+       9.2.2.ngFor - syntax:  *ngFor="let iterator of array-name"
+
+     9.3.attribute directives- to apply set of style to html
+       9.3.1.predefined- eg: ngClass--based on a condition style will apply to html
+       9.3.2.userdefined
+
+  10.local storage- to permanently store data in browser
+
+     10.1.setItem()
+     10.2.getItem()
+     10.3.removeItem()
+
+  11.angular pipes:to convert the data format from one to another---diff inbuilt pipes are available--eg:datepipe,uppercasepipe so on
+       syntax:expression | pipe operator [:pipe arguments]
+
+   12.Animation
+
+   13.Parent -child communication
+
+      13.1. parent to child : input decorator
+
+      13.2. child to parent : output decorator
+
+   14.event emitter - to generate userdefined events
+       14.1.emit() - to occur the event
+
+   15.Client - Server integration
+      
+      15.1.API - HttpClient
+
+   16.Asynchronous function resolving - RxJS-reactive extensions for javascript--library--it is there by default
+
+     16.1.Observable method - resolved state - .subscribe() 
+                               reject state-catch()
+
 

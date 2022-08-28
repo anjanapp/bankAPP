@@ -15,8 +15,8 @@ export class RegisterComponent implements OnInit {
 
   //form group
   registerForm=this.fb.group({
-    acno:[''],
-    pswd:[''],
+    acno:['',[Validators.required,Validators.pattern('[0-9]*')]],
+    pswd:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]*')]],
     uname:['',[Validators.required,Validators.pattern('[a-zA-Z ]*')]]
   })
  
@@ -25,26 +25,33 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  // register definition--when button clicked it will come here
   register(){
     // alert("register clicked")
     var uname=this.registerForm.value.uname
     var acno=this.registerForm.value.acno
     var pswd=this.registerForm.value.pswd
 
-    // if(this.registerForm.get('uname'),errors){
-    //   alert("invalid username")
-    // }
 
   if(this.registerForm.valid){
-    const result=this.ds.register(uname,acno,pswd)
+    //asynchronous
 
-    if(result){
-      alert("successfully registered")
-      this.router.navigateByUrl("")
+    this.ds.register(uname,acno,pswd) //function call to register in ds
+    .subscribe((result:any)=>{    //response from server (json data) from dataservice
+      if(result){
+        alert(result.message)     // response--200 series statuscode resolving
+        this.router.navigateByUrl("")
+      }
+  
+      
+    },
+    result=>{
+      alert(result.error.message)    //another callback function  //response--400 series statuscode resolving,but here both 200 and 400 come only error msg here
+      
     }
-    else{
-      alert("already existing user..please Log In!!!")
-    }
+    )
+
+
   }
   else{
     alert("invalid form")
